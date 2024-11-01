@@ -39,16 +39,6 @@ def save_audio_locally(audio_data, filename):
     with open(path, 'wb') as audio_file:
         audio_file.write(audio_data)
         
-def purge_old_audio_files():
-    # Obtiene todos los archivos mp3 en el directorio especificado
-    audio_files = glob.glob(os.path.join('/home/ubuntu/llamadas', "*.mp3"))
-    # Ordena los archivos por fecha de modificación (antiguos primero)
-    audio_files.sort(key=os.path.getmtime)
-    # Mantén el archivo más reciente y elimina los demás
-    for audio_file in audio_files[:-1]:  # Excluye el último archivo de la lista
-        os.remove(audio_file)
-        print(f"Archivo {audio_file} eliminado.")
-        
         
 def format_phone_number(phone_number):
     # Que el número sea una cadena
